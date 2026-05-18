@@ -1,4 +1,9 @@
 import { supabase, isSupabaseConfigured } from '../lib/supabase'
+import {
+  normalizeRestaurant,
+  normalizeRestaurantPayload,
+  normalizeRestaurants,
+} from '../lib/text'
 
 function client () {
   if (!isSupabaseConfigured || !supabase) {
@@ -14,7 +19,7 @@ export async function fetchRestaurants () {
     .order('created_at', { ascending: false })
 
   if (error) throw error
-  return data ?? []
+  return normalizeRestaurants(data)
 }
 
 function sanitizeIlike (q) {
@@ -37,7 +42,7 @@ export async function searchRestaurants (query) {
     .limit(50)
 
   if (error) throw error
-  return data ?? []
+  return normalizeRestaurants(data)
 }
 
 export async function fetchRestaurantById (id) {
@@ -57,7 +62,7 @@ export async function fetchRestaurantById (id) {
     .order('sort_order', { ascending: true })
 
   if (iErr) throw iErr
-  return { ...restaurant, menu_images: images ?? [] }
+  return { ...normalizeRestaurant(restaurant), menu_images: images ?? [] }
 }
 
 export async function logVisit (restaurantId) {
@@ -87,7 +92,7 @@ export async function fetchAdminStats () {
     totalRestaurants: r.count ?? 0,
     totalImages: m.count ?? 0,
     totalVisits: v.count ?? 0,
-    recentRestaurants: recent.data ?? [],
+    recentRestaurants: normalizeRestaurants(recent.data),
   }
 }
 
@@ -98,12 +103,13 @@ export async function adminListRestaurants () {
     .order('created_at', { ascending: false })
 
   if (error) throw error
-  return data ?? []
+  return normalizeRestaurants(data)
 }
 
 export async function adminCreateRestaurant (payload, menuImageUrls) {
   const c = client()
-  const { data: row, error } = await c.from('restaurants').insert(payload).select().single()
+  const clean = normalizeRestaurantPayload(payload)
+  const { data: row, error } = await c.from('restaurants').insert(clean).select().single()
   if (error) throw error
 
   if (menuImageUrls?.length) {
@@ -115,12 +121,13 @@ export async function adminCreateRestaurant (payload, menuImageUrls) {
     const { error: imgErr } = await c.from('menu_images').insert(rows)
     if (imgErr) throw imgErr
   }
-  return row
+  return normalizeRestaurant(row)
 }
 
 export async function adminUpdateRestaurant (id, payload, menuImageUrls) {
   const c = client()
-  const { error } = await c.from('restaurants').update(payload).eq('id', id)
+  const clean = normalizeRestaurantPayload(payload)
+  const { error } = await c.from('restaurants').update(clean).eq('id', id)
   if (error) throw error
 
   if (menuImageUrls) {

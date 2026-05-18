@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Search, Sparkles } from 'lucide-react'
-import { HERO_SUBTITLE, TAGLINES } from '../lib/constants'
+import { APP_NAME, HERO_SUBTITLE, TAGLINES } from '../lib/constants'
 
 export function SearchHero ({ value, onChange, suggestions = [], onPickSuggestion }) {
   return (
@@ -25,7 +25,7 @@ export function SearchHero ({ value, onChange, suggestions = [], onPickSuggestio
           className="mt-5 text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl"
         >
           Encuentra cartas completas, precios y recomendaciones de{' '}
-          <span className="text-gradient">Urba Vites</span>
+          <span className="text-gradient">{APP_NAME}</span>
         </motion.h1>
 
         <motion.p

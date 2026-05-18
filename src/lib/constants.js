@@ -1,4 +1,4 @@
-export const APP_NAME = 'UrbanVites'
+export const APP_NAME = 'UrbanBites'
 
 export const CATEGORY_OPTIONS = [
   'Pollería',

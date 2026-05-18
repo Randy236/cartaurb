@@ -135,7 +135,7 @@ export function AdminLogin () {
             disabled={busy}
             className="w-full rounded-2xl bg-gradient-to-r from-fuchsia-600 to-violet-600 py-3 text-sm font-bold text-white shadow-lg shadow-fuchsia-600/25 transition hover:brightness-110 disabled:opacity-60"
           >
-            {busy ? 'Entrando…' : 'Entrar'}
+            {busy ? 'Entrando...' : 'Entrar'}
           </button>
         </form>
 

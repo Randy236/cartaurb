@@ -154,7 +154,7 @@ export function Home () {
             {!query.trim() && !category ? 'Más restaurantes' : 'Catálogo'}
           </h3>
           {searchLoading && (
-            <span className="text-xs font-medium text-fuchsia-300">Buscando…</span>
+            <span className="text-xs font-medium text-fuchsia-300">Buscando...</span>
           )}
         </div>
 

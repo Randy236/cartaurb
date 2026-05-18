@@ -67,7 +67,7 @@ export function RestaurantsAdmin () {
       </div>
 
       <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
-        {loading && <div className="p-8 text-sm text-slate-500">Cargando…</div>}
+        {loading && <div className="p-8 text-sm text-slate-500">Cargando...</div>}
         {!loading && rows.length === 0 && (
           <div className="p-10 text-center text-sm text-slate-500">No hay restaurantes aún.</div>
         )}

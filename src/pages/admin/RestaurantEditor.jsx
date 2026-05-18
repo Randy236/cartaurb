@@ -230,7 +230,7 @@ export function RestaurantEditor () {
             </select>
           </div>
           <div>
-            <label className="mb-1 block text-xs font-semibold text-slate-400">Calificación (0–5)</label>
+            <label className="mb-1 block text-xs font-semibold text-slate-400">Calificación (0-5)</label>
             <input
               type="number"
               step="0.1"
@@ -345,7 +345,7 @@ export function RestaurantEditor () {
           className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-fuchsia-600 to-violet-600 py-3.5 text-sm font-bold text-white shadow-lg shadow-fuchsia-600/25 disabled:opacity-60 sm:w-auto sm:px-10"
         >
           <Save className="h-4 w-4" aria-hidden />
-          {saving ? 'Guardando…' : 'Guardar'}
+          {saving ? 'Guardando...' : 'Guardar'}
         </button>
       </motion.form>
     </div>

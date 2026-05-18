@@ -5,7 +5,7 @@ import { MapPin, Star, ExternalLink } from 'lucide-react'
 const placeholder =
   'data:image/svg+xml,' +
   encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#f97316"/></linearGradient></defs><rect width="800" height="500" fill="url(#g)"/><text x="400" y="260" text-anchor="middle" fill="white" font-family="system-ui" font-size="28" opacity=".9">UrbanVites</text></svg>`,
+    `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7c3aed"/><stop offset="1" stop-color="#f97316"/></linearGradient></defs><rect width="800" height="500" fill="url(#g)"/><text x="400" y="260" text-anchor="middle" fill="white" font-family="system-ui" font-size="28" opacity=".9">UrbanBites</text></svg>`,
   )
 
 export function RestaurantCard ({ restaurant, index = 0 }) {

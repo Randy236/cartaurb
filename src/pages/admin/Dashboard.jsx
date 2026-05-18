@@ -49,7 +49,7 @@ export function Dashboard () {
     <div className="mx-auto max-w-5xl space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-white sm:text-3xl">Dashboard</h1>
-        <p className="mt-1 text-sm text-slate-400">Resumen de tu plataforma UrbanVites.</p>
+        <p className="mt-1 text-sm text-slate-400">Resumen de tu plataforma UrbanBites.</p>
       </div>
 
       {error && (
